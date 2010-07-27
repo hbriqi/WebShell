@@ -5,6 +5,9 @@ using WebShell.ClassLibrary.Interfaces;
 
 namespace WebShell.ClassLibrary.Classes
 {
+    /// <summary>
+    /// type creator 
+    /// </summary>
    public class ObjectBuilder
     {
        public static IResult CreateFrom(Type type)
