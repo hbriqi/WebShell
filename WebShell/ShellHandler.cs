@@ -29,7 +29,8 @@ namespace WebShell
             }
             else
             {
-                context.Response.Write("Can not Found the Resource!");
+                //TODO: manage response to be more meaningful  
+                context.Response.Write("Resource not found.");
             }
         }
 
