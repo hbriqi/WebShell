@@ -20,12 +20,30 @@ namespace WebShell
 
         public void ProcessRequest(HttpContext context)
         {
-            IResult r_object = ObjectBuilder.CreateFrom(WebShell.Utilities.Configuration.WebShellConfig.CommandProviderType);
+            IResult r_object = ObjectBuilder.CreateFrom(WebShell.Utilities.Configuration.WebShellConfig.GetCommandType("dispatcher"));
             if (r_object.Success)
             {
                 ICommand command = (ICommand)r_object.Data;
-                string strResponse = command.Execute(context.Request.Url.AbsolutePath).Data.ToString();
-                context.Response.Write(strResponse);
+                string ComRoot = WebShellConfig.Root.ToLower();
+                string strCommand = context.Request.Url.AbsolutePath.ToLower();
+                if (strCommand.StartsWith(ComRoot))
+                {
+                    strCommand = strCommand.Remove(0, ComRoot.Length);
+                }
+                else if (strCommand.StartsWith("/"))
+                {
+                    strCommand = strCommand.Remove(0, 1);
+                }
+                IResult result = command.Execute(strCommand);
+                if (result.Success == true)
+                {
+                    context.Response.Write(result.Data);
+                }
+                else
+                {
+                    //TODO: if result not succeeded so appropriate action should be taken => High Priority
+                    context.Response.Write("Command Result is not trusted.");
+                }
             }
             else
             {

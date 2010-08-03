@@ -8,27 +8,31 @@ namespace WebShell.Utilities.Configuration
 {
     public static class WebShellConfig
     {
-        public static Type CommandProviderType
+        static WebShellSection shellSectin = (WebShellSection)ConfigurationManager.GetSection("webShell");
+
+        public static Type GetCommandType(string name)
+        {
+            Type commandProviderType = Type.GetType(shellSectin.Commands[name].ProviderType);
+            if (commandProviderType == null)
+                throw new Exception("Command provider section is not configured properly");
+            return commandProviderType;
+        }
+
+        public static string Root
         {
             get 
             {
-                WebShellSection shellSectin=(WebShellSection)ConfigurationManager.GetSection("webShell");
-                Type commandProviderType=Type.GetType(shellSectin.Command.ProviderType);
-                if (commandProviderType == null)
-                    throw new Exception("Command provider section is not configured properly");
-                return commandProviderType;
-            }
-        }
-
-        public static Type ContentProviderType
-        {
-            get
-            {
-                WebShellSection shellSectin = (WebShellSection)ConfigurationManager.GetSection("webShell");
-                Type commandProviderType = Type.GetType(shellSectin.Content.ProviderType);
-                if (commandProviderType == null)
-                    throw new Exception("Content provider section is not configured properly");
-                return commandProviderType;
+                string root = string.Empty;
+                try
+                {
+                    root = shellSectin.Settings["root"].Value.ToString();
+                    return root;
+                }
+                catch (Exception ex)
+                {
+                    //TODO: add apropriate message here concerned with ex => Low priorty
+                    throw ex;
+                }
             }
         }
     }

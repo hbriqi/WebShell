@@ -15,7 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities and Libraries", "
 EndProject
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Pages\", "Pages\", "{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}"
 	ProjectSection(WebsiteProperties) = preProject
-		ProjectReferences = "{EDD14B0C-6893-4479-B164-4B2EB0B6AA21}|WebShell.dll;"
+		ProjectReferences = "{EDD14B0C-6893-4479-B164-4B2EB0B6AA21}|WebShell.dll;{89BB00E8-3655-444E-9081-29BB5C9A8E98}|WebNote.Notes.dll;{82F50267-0E60-4008-B5F8-6ED6D13DB563}|WebNote.Users.dll;{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}|WebShell.Providers.Command.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Pages"
 		Debug.AspNetCompiler.PhysicalPath = "Pages\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Pages\"
@@ -34,6 +34,14 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Pages\", "Pages\", "
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.Providers.Regulator", "WebShell.Providers.Command\WebShell.Providers.Regulator.csproj", "{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{8369DDCE-7C19-406B-9D6D-F8B447967B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.Notes", "WebNote.Notes\WebNote.Notes.csproj", "{89BB00E8-3655-444E-9081-29BB5C9A8E98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pilot", "Pilot", "{ED79754C-C652-40C1-B29D-F14CD9D96791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.Users", "WebNote.Users\WebNote.Users.csproj", "{82F50267-0E60-4008-B5F8-6ED6D13DB563}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +113,26 @@ Global
 		{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}.Release|Any CPU.Build.0 = Release|Any CPU
 		{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Release|.NET.ActiveCfg = Release|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Release|.NET.ActiveCfg = Release|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -114,5 +142,9 @@ Global
 		{B6898218-A325-4C4F-9D43-FD88726D1AEA} = {7D719738-FC77-4357-B619-F883B4F1E6F0}
 		{EBCAF02E-EF9C-44C1-9F94-1ADD1D8CF9F4} = {07708767-4770-4A00-8D99-DAB003379525}
 		{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30} = {07708767-4770-4A00-8D99-DAB003379525}
+		{89BB00E8-3655-444E-9081-29BB5C9A8E98} = {8369DDCE-7C19-406B-9D6D-F8B447967B4F}
+		{82F50267-0E60-4008-B5F8-6ED6D13DB563} = {8369DDCE-7C19-406B-9D6D-F8B447967B4F}
+		{8369DDCE-7C19-406B-9D6D-F8B447967B4F} = {ED79754C-C652-40C1-B29D-F14CD9D96791}
+		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9} = {ED79754C-C652-40C1-B29D-F14CD9D96791}
 	EndGlobalSection
 EndGlobal

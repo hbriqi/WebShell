@@ -4,11 +4,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.50727</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A6327050-68B9-461D-9CA8-9F497EADA064}</ProjectGuid>
+    <ProjectGuid>{89BB00E8-3655-444E-9081-29BB5C9A8E98}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebShell.Utilities.Configuration</RootNamespace>
-    <AssemblyName>WebShell.Utilities.Configuration</AssemblyName>
+    <RootNamespace>WebNote.Notes</RootNamespace>
+    <AssemblyName>WebNote.Notes</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -29,18 +29,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Section\CommandProviderCollection.cs" />
-    <Compile Include="Section\CommandProviderElement.cs" />
-    <Compile Include="Section\SettingCollection.cs" />
-    <Compile Include="Section\SettingElement.cs" />
-    <Compile Include="Section\WebShellSection.cs" />
-    <Compile Include="WebShellConfig.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

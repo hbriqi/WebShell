@@ -7,18 +7,19 @@ namespace WebShell.Utilities.Configuration.Section
 {
     public class WebShellSection:ConfigurationSection
     {
-        [ConfigurationProperty("content")]
-        public ContentProviderElement Content
+        [ConfigurationProperty("commands", IsRequired=true)]
+        public CommandProviderCollection Commands
         {
-            get { return (ContentProviderElement)this["content"]; }
-            set { this["content"] = value; }
+            get { return this["commands"] as CommandProviderCollection; }
+           
         }
 
-        [ConfigurationProperty("command")]
-        public CommandProviderElement Command
+        [ConfigurationProperty("settings", IsRequired = true)]
+        public SettingCollection Settings
         {
-            get { return (CommandProviderElement)this["command"];}
-            set { this["command"] = value; }
+            get { return this["settings"] as SettingCollection; }
+
         }
+   
     }
 }

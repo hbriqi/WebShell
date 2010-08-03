@@ -30,6 +30,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -40,6 +41,10 @@
     <ProjectReference Include="..\WebShell.ClassLibrary\WebShell.ClassLibrary.csproj">
       <Project>{B6898218-A325-4C4F-9D43-FD88726D1AEA}</Project>
       <Name>WebShell.ClassLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebShell.Utilities.Configuration\WebShell.Utilities.Configuration.csproj">
+      <Project>{A6327050-68B9-461D-9CA8-9F497EADA064}</Project>
+      <Name>WebShell.Utilities.Configuration</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
