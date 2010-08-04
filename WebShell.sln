@@ -11,9 +11,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities and Libraries", "Utilities and Libraries", "{7D719738-FC77-4357-B619-F883B4F1E6F0}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Pages\", "Pages\", "{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.Providers.Regulator", "WebShell.Providers.Command\WebShell.Providers.Regulator.csproj", "{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{8369DDCE-7C19-406B-9D6D-F8B447967B4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.Notes", "WebNote.Notes\WebNote.Notes.csproj", "{89BB00E8-3655-444E-9081-29BB5C9A8E98}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pilot", "Pilot", "{ED79754C-C652-40C1-B29D-F14CD9D96791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.Users", "WebNote.Users\WebNote.Users.csproj", "{82F50267-0E60-4008-B5F8-6ED6D13DB563}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.Providers.UI", "WebShell.Providers.UI\WebShell.Providers.UI.csproj", "{08F26219-76D1-4138-BD4B-01D29043227C}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Pages\", "Pages\", "{0DD61251-1E39-49F2-94D6-535AE937D636}"
 	ProjectSection(WebsiteProperties) = preProject
-		ProjectReferences = "{EDD14B0C-6893-4479-B164-4B2EB0B6AA21}|WebShell.dll;{89BB00E8-3655-444E-9081-29BB5C9A8E98}|WebNote.Notes.dll;{82F50267-0E60-4008-B5F8-6ED6D13DB563}|WebNote.Users.dll;{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}|WebShell.Providers.Command.dll;"
+		ProjectReferences = "{89BB00E8-3655-444E-9081-29BB5C9A8E98}|WebNote.Notes.dll;{82F50267-0E60-4008-B5F8-6ED6D13DB563}|WebNote.Users.dll;{EDD14B0C-6893-4479-B164-4B2EB0B6AA21}|WebShell.dll;{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}|WebShell.Providers.Command.dll;{08F26219-76D1-4138-BD4B-01D29043227C}|WebShell.Providers.UI.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Pages"
 		Debug.AspNetCompiler.PhysicalPath = "Pages\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Pages\"
@@ -28,20 +40,9 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Pages\", "Pages\", "
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "2495"
+		VWDPort = "6497"
+		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.Providers.Regulator", "WebShell.Providers.Command\WebShell.Providers.Regulator.csproj", "{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{8369DDCE-7C19-406B-9D6D-F8B447967B4F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.Notes", "WebNote.Notes\WebNote.Notes.csproj", "{89BB00E8-3655-444E-9081-29BB5C9A8E98}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pilot", "Pilot", "{ED79754C-C652-40C1-B29D-F14CD9D96791}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.Users", "WebNote.Users\WebNote.Users.csproj", "{82F50267-0E60-4008-B5F8-6ED6D13DB563}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.Providers.UI", "WebShell.Providers.UI\WebShell.Providers.UI.csproj", "{08F26219-76D1-4138-BD4B-01D29043227C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,16 +84,6 @@ Global
 		{A6327050-68B9-461D-9CA8-9F497EADA064}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A6327050-68B9-461D-9CA8-9F497EADA064}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A6327050-68B9-461D-9CA8-9F497EADA064}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Debug|.NET.ActiveCfg = Debug|.NET
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Debug|.NET.Build.0 = Debug|.NET
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Debug|Any CPU.ActiveCfg = Debug|.NET
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Debug|Mixed Platforms.Build.0 = Debug|.NET
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Release|.NET.ActiveCfg = Debug|.NET
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Release|.NET.Build.0 = Debug|.NET
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Release|Any CPU.ActiveCfg = Debug|.NET
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9}.Release|Mixed Platforms.Build.0 = Debug|.NET
 		{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}.Debug|.NET.ActiveCfg = Debug|Any CPU
 		{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}.Debug|Any CPU.Build.0 = Debug|Any CPU
@@ -133,6 +124,16 @@ Global
 		{08F26219-76D1-4138-BD4B-01D29043227C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{08F26219-76D1-4138-BD4B-01D29043227C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{08F26219-76D1-4138-BD4B-01D29043227C}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Debug|.NET.ActiveCfg = Debug|.NET
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Debug|.NET.Build.0 = Debug|.NET
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Debug|Any CPU.ActiveCfg = Debug|.NET
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Debug|Mixed Platforms.ActiveCfg = Debug|.NET
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Debug|Mixed Platforms.Build.0 = Debug|.NET
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Release|.NET.ActiveCfg = Debug|.NET
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Release|.NET.Build.0 = Debug|.NET
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Release|Any CPU.ActiveCfg = Debug|.NET
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
+		{0DD61251-1E39-49F2-94D6-535AE937D636}.Release|Mixed Platforms.Build.0 = Debug|.NET
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -143,7 +144,7 @@ Global
 		{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30} = {07708767-4770-4A00-8D99-DAB003379525}
 		{08F26219-76D1-4138-BD4B-01D29043227C} = {07708767-4770-4A00-8D99-DAB003379525}
 		{8369DDCE-7C19-406B-9D6D-F8B447967B4F} = {ED79754C-C652-40C1-B29D-F14CD9D96791}
-		{3E0EBCDD-5E87-4283-B929-AE38FB7CCBE9} = {ED79754C-C652-40C1-B29D-F14CD9D96791}
+		{0DD61251-1E39-49F2-94D6-535AE937D636} = {ED79754C-C652-40C1-B29D-F14CD9D96791}
 		{89BB00E8-3655-444E-9081-29BB5C9A8E98} = {8369DDCE-7C19-406B-9D6D-F8B447967B4F}
 		{82F50267-0E60-4008-B5F8-6ED6D13DB563} = {8369DDCE-7C19-406B-9D6D-F8B447967B4F}
 	EndGlobalSection
