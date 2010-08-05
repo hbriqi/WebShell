@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{07708767-4770-4A00-8D99-DAB003379525}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities and Libraries", "Utilities and Libraries", "{7D719738-FC77-4357-B619-F883B4F1E6F0}"
@@ -23,9 +23,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.Users", "WebNote.Us
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.Providers.UI", "WebShell.Providers.UI\WebShell.Providers.UI.csproj", "{08F26219-76D1-4138-BD4B-01D29043227C}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Pages", "Pages", "{0DD61251-1E39-49F2-94D6-535AE937D636}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Pages", "Pages\", "{0DD61251-1E39-49F2-94D6-535AE937D636}"
 	ProjectSection(WebsiteProperties) = preProject
-		TargetFramework = "3.5"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
 		ProjectReferences = "{89BB00E8-3655-444E-9081-29BB5C9A8E98}|WebNote.Notes.dll;{82F50267-0E60-4008-B5F8-6ED6D13DB563}|WebNote.Users.dll;{EDD14B0C-6893-4479-B164-4B2EB0B6AA21}|WebShell.dll;{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}|WebShell.Providers.Command.dll;{08F26219-76D1-4138-BD4B-01D29043227C}|WebShell.Providers.UI.dll;{B6898218-A325-4C4F-9D43-FD88726D1AEA}|WebShell.ClassLibrary.dll;{A6327050-68B9-461D-9CA8-9F497EADA064}|WebShell.Utilities.Configuration.dll;{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}|WebNote.ViewModels.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Pages"
 		Debug.AspNetCompiler.PhysicalPath = "Pages\"
