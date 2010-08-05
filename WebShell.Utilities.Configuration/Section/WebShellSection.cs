@@ -14,6 +14,12 @@ namespace WebShell.Utilities.Configuration.Section
            
         }
 
+        [ConfigurationProperty("presenter", IsRequired = true)]
+        public PresenterElement Presenter
+        {
+            get { return this["presenter"] as PresenterElement; }
+
+        }
         [ConfigurationProperty("settings", IsRequired = true)]
         public SettingCollection Settings
         {

@@ -1,31 +1,32 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 9.00
-# Visual Studio 2005
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{07708767-4770-4A00-8D99-DAB003379525}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities and Libraries", "Utilities and Libraries", "{7D719738-FC77-4357-B619-F883B4F1E6F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{8369DDCE-7C19-406B-9D6D-F8B447967B4F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pilot", "Pilot", "{ED79754C-C652-40C1-B29D-F14CD9D96791}"
+EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell", "WebShell\WebShell.csproj", "{EDD14B0C-6893-4479-B164-4B2EB0B6AA21}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.ClassLibrary", "WebShell.ClassLibrary\WebShell.ClassLibrary.csproj", "{B6898218-A325-4C4F-9D43-FD88726D1AEA}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.Utilities.Configuration", "WebShell.Utilities.Configuration\WebShell.Utilities.Configuration.csproj", "{A6327050-68B9-461D-9CA8-9F497EADA064}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Providers", "Providers", "{07708767-4770-4A00-8D99-DAB003379525}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Utilities and Libraries", "Utilities and Libraries", "{7D719738-FC77-4357-B619-F883B4F1E6F0}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.Providers.Regulator", "WebShell.Providers.Command\WebShell.Providers.Regulator.csproj", "{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{8369DDCE-7C19-406B-9D6D-F8B447967B4F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.Notes", "WebNote.Notes\WebNote.Notes.csproj", "{89BB00E8-3655-444E-9081-29BB5C9A8E98}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pilot", "Pilot", "{ED79754C-C652-40C1-B29D-F14CD9D96791}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.Users", "WebNote.Users\WebNote.Users.csproj", "{82F50267-0E60-4008-B5F8-6ED6D13DB563}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebShell.Providers.UI", "WebShell.Providers.UI\WebShell.Providers.UI.csproj", "{08F26219-76D1-4138-BD4B-01D29043227C}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Pages\", "Pages\", "{0DD61251-1E39-49F2-94D6-535AE937D636}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Pages", "Pages", "{0DD61251-1E39-49F2-94D6-535AE937D636}"
 	ProjectSection(WebsiteProperties) = preProject
-		ProjectReferences = "{89BB00E8-3655-444E-9081-29BB5C9A8E98}|WebNote.Notes.dll;{82F50267-0E60-4008-B5F8-6ED6D13DB563}|WebNote.Users.dll;{EDD14B0C-6893-4479-B164-4B2EB0B6AA21}|WebShell.dll;{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}|WebShell.Providers.Command.dll;{08F26219-76D1-4138-BD4B-01D29043227C}|WebShell.Providers.UI.dll;"
+		TargetFramework = "3.5"
+		ProjectReferences = "{89BB00E8-3655-444E-9081-29BB5C9A8E98}|WebNote.Notes.dll;{82F50267-0E60-4008-B5F8-6ED6D13DB563}|WebNote.Users.dll;{EDD14B0C-6893-4479-B164-4B2EB0B6AA21}|WebShell.dll;{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30}|WebShell.Providers.Command.dll;{08F26219-76D1-4138-BD4B-01D29043227C}|WebShell.Providers.UI.dll;{B6898218-A325-4C4F-9D43-FD88726D1AEA}|WebShell.ClassLibrary.dll;{A6327050-68B9-461D-9CA8-9F497EADA064}|WebShell.Utilities.Configuration.dll;{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}|WebNote.ViewModels.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/Pages"
 		Debug.AspNetCompiler.PhysicalPath = "Pages\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\Pages\"
@@ -43,6 +44,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "D:\...\Pages\", "Pages\", "
 		VWDPort = "6497"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebNote.ViewModels", "WebNotes.ViewModels\WebNote.ViewModels.csproj", "{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -134,18 +137,29 @@ Global
 		{0DD61251-1E39-49F2-94D6-535AE937D636}.Release|Any CPU.ActiveCfg = Debug|.NET
 		{0DD61251-1E39-49F2-94D6-535AE937D636}.Release|Mixed Platforms.ActiveCfg = Debug|.NET
 		{0DD61251-1E39-49F2-94D6-535AE937D636}.Release|Mixed Platforms.Build.0 = Debug|.NET
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Debug|.NET.ActiveCfg = Debug|Any CPU
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Release|.NET.ActiveCfg = Release|Any CPU
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{A6327050-68B9-461D-9CA8-9F497EADA064} = {7D719738-FC77-4357-B619-F883B4F1E6F0}
-		{B6898218-A325-4C4F-9D43-FD88726D1AEA} = {7D719738-FC77-4357-B619-F883B4F1E6F0}
 		{73D6DC0D-25FA-443A-B89D-FBBDBEF97B30} = {07708767-4770-4A00-8D99-DAB003379525}
 		{08F26219-76D1-4138-BD4B-01D29043227C} = {07708767-4770-4A00-8D99-DAB003379525}
+		{B6898218-A325-4C4F-9D43-FD88726D1AEA} = {7D719738-FC77-4357-B619-F883B4F1E6F0}
+		{A6327050-68B9-461D-9CA8-9F497EADA064} = {7D719738-FC77-4357-B619-F883B4F1E6F0}
 		{8369DDCE-7C19-406B-9D6D-F8B447967B4F} = {ED79754C-C652-40C1-B29D-F14CD9D96791}
 		{0DD61251-1E39-49F2-94D6-535AE937D636} = {ED79754C-C652-40C1-B29D-F14CD9D96791}
 		{89BB00E8-3655-444E-9081-29BB5C9A8E98} = {8369DDCE-7C19-406B-9D6D-F8B447967B4F}
 		{82F50267-0E60-4008-B5F8-6ED6D13DB563} = {8369DDCE-7C19-406B-9D6D-F8B447967B4F}
+		{0CB5A66A-D943-4D03-9DAE-38C49566CEE3} = {8369DDCE-7C19-406B-9D6D-F8B447967B4F}
 	EndGlobalSection
 EndGlobal

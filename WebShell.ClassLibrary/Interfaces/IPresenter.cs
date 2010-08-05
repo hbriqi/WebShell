@@ -5,11 +5,12 @@ using System.Web;
 
 namespace WebShell.ClassLibrary.Interfaces
 {
-    public interface IPresenter<T>
+    public interface IPresenter
     {
-        IResult GetViewModel(T viewType, HttpRequest httpRequest);
+        void SetViewModel(ref Type viewType, HttpRequest httpRequest);
         IResult GetViewHTML(string resourceName);
         IResult Localize(string resourceName);
+
     }
 }
 

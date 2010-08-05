@@ -4,19 +4,27 @@ using System.Text;
 using WebShell.ClassLibrary.Interfaces;
 using WebShell.ClassLibrary.Classes;
 using System.Web;
+using System.Reflection;
 
 namespace WebShell.Providers.UI
 {
-    public class Presenter<T> : IPresenter<T>
+    public class Presenter:IPresenter
     {
         public IResult GetViewHTML(string resourceName)
         {
             throw new Exception("Method not implemented");
         }
 
-        public IResult GetViewModel(T viewType, HttpRequest httpRequest)
+        public void SetViewModel(ref Type viewType, HttpRequest httpRequest)
         {
-            throw new Exception("Method not implemented");
+            foreach(PropertyInfo propertiy in viewType.GetType().GetProperties())
+            {
+                if (propertiy.CanWrite)
+                {
+                    propertiy.SetValue(viewType, "test view model", null);
+                }
+            }
+           
         }
 
         public IResult Localize(string resourceName)

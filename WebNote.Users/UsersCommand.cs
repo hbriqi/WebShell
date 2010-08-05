@@ -4,6 +4,8 @@ using System.Text;
 using WebShell.ClassLibrary.Interfaces;
 using WebShell.ClassLibrary.Classes;
 using System.Web;
+using WebShell.Utilities.Configuration;
+using WebNote.ViewModels;
 
 namespace WebNote.Users
 {
@@ -25,7 +27,12 @@ namespace WebNote.Users
         {
             Result result = new Result();
             HttpRequest httpRequest = HttpContext.Current.Request;
-            result.Data = "Welcome new user";
+
+            IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()) as IPresenter;
+            UserView userView=new UserView();
+            Type t = typeof(UserView);
+            presenter.SetViewModel(ref t, httpRequest);
+            result.Data = userView.Name;
             result.Success = true;
 
             return result;

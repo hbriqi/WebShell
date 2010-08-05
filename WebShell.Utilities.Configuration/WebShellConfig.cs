@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using WebShell.Utilities.Configuration.Section;
 using System.Configuration;
+using WebShell.ClassLibrary.Interfaces;
+using WebShell.ClassLibrary.Classes;
+using System.Reflection;
 
 namespace WebShell.Utilities.Configuration
 {
@@ -17,7 +20,13 @@ namespace WebShell.Utilities.Configuration
                 throw new Exception("Command provider section is not configured properly");
             return commandProviderType;
         }
-
+        public static Type GetPresenterType()
+        {
+            Type presnterType = Type.GetType(shellSectin.Presenter.ProviderType, true);
+            if (presnterType == null)
+                throw new Exception("Presenter provider section is not configured properly");
+            return presnterType;
+        }
         public static string Root
         {
             get 
