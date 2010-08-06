@@ -27,6 +27,7 @@ namespace WebShell.Utilities.Configuration
                 throw new Exception("Presenter provider section is not configured properly");
             return presnterType;
         }
+
         public static string Root
         {
             get 
@@ -44,5 +45,7 @@ namespace WebShell.Utilities.Configuration
                 }
             }
         }
+
+        
     }
 }

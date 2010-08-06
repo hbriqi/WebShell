@@ -5,6 +5,7 @@ using WebShell.ClassLibrary.Interfaces;
 using WebShell.ClassLibrary.Classes;
 using System.Web;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 namespace WebShell.Providers.UI
 {
@@ -12,16 +13,20 @@ namespace WebShell.Providers.UI
     {
         public IResult GetViewHTML(string resourceName)
         {
-            throw new Exception("Method not implemented");
+            IResult result= null;
+            
+            return result; 
+            
         }
 
-        public void SetViewModel(ref Type viewType, HttpRequest httpRequest)
+        public void SetViewModel(dynamic viewType, HttpRequest httpRequest)
         {
-            foreach(PropertyInfo propertiy in viewType.GetType().GetProperties())
+            foreach (PropertyInfo property in viewType.GetType().GetProperties())
             {
-                if (propertiy.CanWrite)
+                if (property.CanWrite)
                 {
-                    propertiy.SetValue(viewType, "test view model", null);
+                    //TODO: set values using httpResquest data => High
+                    property.SetValue(viewType, "test view model", null);
                 }
             }
            

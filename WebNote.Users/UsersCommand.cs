@@ -28,11 +28,10 @@ namespace WebNote.Users
             Result result = new Result();
             HttpRequest httpRequest = HttpContext.Current.Request;
 
-            IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()) as IPresenter;
-            UserView userView=new UserView();
-            Type t = typeof(UserView);
-            presenter.SetViewModel(ref t, httpRequest);
-            result.Data = userView.Name;
+            IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()).Data as IPresenter;
+            dynamic view=new UserView();
+            presenter.SetViewModel(view, httpRequest);
+            result.Data = view.Name;
             result.Success = true;
 
             return result;

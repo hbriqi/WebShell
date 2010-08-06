@@ -27,7 +27,8 @@ namespace WebShell.Providers.Command
             if (oResult.Success)
             {
                 iCommand = oResult.Data as ICommand;
-                command = command.Remove(0, strCommand.Length + 1);
+                command = command.Remove(0, strCommand.Length);
+                if (command.StartsWith("/")) command.Remove(0, 1);
 
                 if (HttpContext.Current.Request.HttpMethod == "GET")
                 {
