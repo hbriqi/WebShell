@@ -8,7 +8,7 @@ namespace WebShell.ClassLibrary.Interfaces
     public interface IPresenter
     {
         void SetViewModel(dynamic viewType, HttpRequest httpRequest);
-        IResult GetViewHTML(string resourceName);
+        IResult GetViewHTML(string resourceName, dynamic viewType=null);
         IResult Localize(string resourceName);
 
     }
