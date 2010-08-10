@@ -25,14 +25,13 @@ namespace WebNote.Users
 
         public IResult Execute_GET(string command)
         {
-            Result result = new Result();
+            IResult result = new Result();
             HttpRequest httpRequest = HttpContext.Current.Request;
 
             IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()).Data as IPresenter;
             dynamic view=new UserView();
-            presenter.SetViewModel(view, httpRequest);
-            result.Data = view.Name;
-            result.Success = true;
+            view.Name = "Hisham";
+            result = presenter.GetViewHTML("AddUser.htm", view);
 
             return result;
         }
