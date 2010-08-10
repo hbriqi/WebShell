@@ -26,8 +26,6 @@ namespace WebNote.Users
         public IResult Execute_GET(string command)
         {
             IResult result = new Result();
-            HttpRequest httpRequest = HttpContext.Current.Request;
-
             IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()).Data as IPresenter;
             dynamic view=new UserView();
             view.Name = "Hisham";
@@ -38,7 +36,14 @@ namespace WebNote.Users
 
         public IResult Execute_POST(string command)
         {
-            throw new Exception("The method or operation is not implemented.");
+            IResult result = new Result();
+            HttpRequest httpRequest = HttpContext.Current.Request;
+            IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()).Data as IPresenter;
+            dynamic view = new UserView();
+            presenter.SetViewModel(view, httpRequest);
+            result.Data= view.Name;
+            result.Success = true;
+            return result;
         }
 
         public IResult Execute_PUT(string command)

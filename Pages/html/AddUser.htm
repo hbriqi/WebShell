@@ -2,9 +2,21 @@
 
 {% block title %}Add New User{% endblock %}
 {% block content %}
-<br></br>
-Welcome {{Name}}
-<br></br>
+<form id="frmAddUser" method="post" action="AddUser.htm" >
+<table id="userTable">
+<tr>
+<td>User Name:</td>
+<td><input id="txtUserName" name="Name" type="text" />  </td>
+</tr>
+<tr>
+<td>Email:</td>
+<td><input id="txtEmail" type="text" />  </td>
+</tr>
+<tr>
+<td colspan="2"><input id="btnSave" type="submit" value="Save" /> </td>
+</tr>
+</table>
+</form>
 {% endblock %}
 {% block footer %}{% endblock %}
 

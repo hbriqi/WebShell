@@ -104,8 +104,11 @@ namespace WebShell.Providers.UI
             {
                 if (property.CanWrite)
                 {
-                    //TODO: set values using httpResquest data => High
-                    property.SetValue(viewType, "test view model", null);
+                    string[] values = httpRequest.Form.GetValues(property.Name);
+                    if (values != null && values.Length > 0)
+                    {
+                        property.SetValue(viewType, values[0], null);
+                    }
                 }
             }
            
