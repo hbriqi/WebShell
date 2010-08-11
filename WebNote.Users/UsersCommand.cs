@@ -41,7 +41,7 @@ namespace WebNote.Users
             IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()).Data as IPresenter;
             dynamic view = new UserView();
             presenter.SetViewModel(view, httpRequest);
-            result.Data= view.Name;
+            result.Data= "Welcom "+view.Name;
             result.Success = true;
             return result;
         }
