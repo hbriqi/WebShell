@@ -1,13 +1,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WebShell.ClassLibrary.Interfaces;
-using WebShell.ClassLibrary.Classes;
 using System.Web;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.IO;
+using WebShell.ClassLibrary.Interfaces;
+using WebShell.ClassLibrary.Classes;
 using WebShell.Providers.UI.Properties;
+using WebShell.Utilities;
 
 namespace WebShell.Providers.UI
 {
@@ -24,6 +25,7 @@ namespace WebShell.Providers.UI
                 string strFinalText = ParsResourceText(strResourceText, viewType);
                 result.Data = strFinalText;
                 result.Success = true;
+                Log.Write(this.ToString(), "getview html", strFinalText);
             }
             catch (Exception ex)
             {
@@ -92,6 +94,23 @@ namespace WebShell.Providers.UI
                     {
                         strFinalText = strFinalText.Replace(matchVariable.Value, proInfo.GetValue(viewType, null).ToString());
                     }
+                }
+            }
+          
+            //sustitute src and href
+            string url = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.AbsolutePath, "");
+            url += WebShell.Utilities.Configuration.WebShellConfig.Root+"html/";
+            foreach (Match matchLink in Regex.Matches(strFinalText, Settings.Default.Reg_HTML_src_href))
+            {
+                string fileLink = Regex.Replace(matchLink.Value, Settings.Default.Reg_HTML_src_href_Replace, "");
+                string thisUrl = url + fileLink;
+                if (matchLink.Value.ToLower().StartsWith(" src"))
+                {
+                    strFinalText = strFinalText.Replace(matchLink.Value, " src=\"" + thisUrl + "\" ");
+                }
+                else if (matchLink.Value.ToLower().StartsWith(" href"))
+                {
+                    strFinalText = strFinalText.Replace(matchLink.Value, " href=\"" + thisUrl + "\" ");
                 }
             }
            

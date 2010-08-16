@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WebShell.Utilities.Configuration.Section;
 using System.Configuration;
+using System.Reflection;
+using WebShell.Utilities.Configuration.Section;
 using WebShell.ClassLibrary.Interfaces;
 using WebShell.ClassLibrary.Classes;
-using System.Reflection;
 
 namespace WebShell.Utilities.Configuration
 {
@@ -20,12 +20,26 @@ namespace WebShell.Utilities.Configuration
                 throw new Exception("Command provider section is not configured properly");
             return commandProviderType;
         }
+
         public static Type GetPresenterType()
         {
             Type presnterType = Type.GetType(shellSectin.Presenter.ProviderType, true);
             if (presnterType == null)
                 throw new Exception("Presenter provider section is not configured properly");
             return presnterType;
+        }
+
+        public static Type GetLoggerType()
+        {
+            Type loogerType = Type.GetType(shellSectin.Logger.ProviderType, true);
+            if (loogerType == null)
+                throw new Exception("Logger provider section is not configured properly");
+            return loogerType;
+        }
+
+        public static string GetSetting(string name)
+        {
+            return shellSectin.Settings[name].Value.ToString();
         }
 
         public static string Root

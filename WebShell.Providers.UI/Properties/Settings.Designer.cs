@@ -139,5 +139,23 @@ namespace WebShell.Providers.UI.Properties {
                 return ((string)(this["Reg_BlockEndSearch"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\ssrc=\\\"[\\w\\./-]*\\\"\\s|\\shref=\\\"[\\w\\./-]*\\\"\\s")]
+        public string Reg_HTML_src_href {
+            get {
+                return ((string)(this["Reg_HTML_src_href"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("href|src|[\\\"\\s=]*")]
+        public string Reg_HTML_src_href_Replace {
+            get {
+                return ((string)(this["Reg_HTML_src_href_Replace"]));
+            }
+        }
     }
 }

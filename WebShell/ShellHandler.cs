@@ -23,32 +23,40 @@ namespace WebShell
             IResult r_object = ObjectBuilder.CreateFrom(WebShell.Utilities.Configuration.WebShellConfig.GetCommandType("dispatcher"));
             if (r_object.Success)
             {
-                ICommand command = (ICommand)r_object.Data;
-                string ComRoot = WebShellConfig.Root.ToLower();
-                string strCommand = context.Request.Url.AbsolutePath.ToLower();
-               
-                if (strCommand.StartsWith(ComRoot))
+                if (System.Text.RegularExpressions.Regex.IsMatch(context.Request.Url.AbsolutePath, "\\w*\\.\\w+$"))
                 {
-                    strCommand = strCommand.Remove(0, ComRoot.Length);
-                }
-                else if (strCommand.StartsWith("/"))
-                {
-                    strCommand = strCommand.Remove(0, 1);
-                }
-
-                if (strCommand == string.Empty)
-                    strCommand = "home";
-
-                IResult result = command.Execute(strCommand);
-                
-                if (result.Success == true)
-                {
-                    context.Response.Write(result.Data);
+                    context.Response.TransmitFile(context.Server.MapPath(context.Request.Url.AbsolutePath));
                 }
                 else
                 {
-                    //TODO: if result not succeeded so appropriate action should be taken => High Priority
-                    context.Response.Write("Command Result is not trusted.");
+                    ICommand command = (ICommand)r_object.Data;
+                    string ComRoot = WebShellConfig.Root.ToLower();
+                    string strCommand = context.Request.Url.AbsolutePath.ToLower();
+                    //context.Response.TransmitFile
+                    if (strCommand.StartsWith(ComRoot))
+                    {
+                        strCommand = strCommand.Remove(0, ComRoot.Length);
+                    }
+                    else if (strCommand.StartsWith("/"))
+                    {
+                        strCommand = strCommand.Remove(0, 1);
+                    }
+
+                    if (strCommand == string.Empty)
+                        strCommand = "home";
+
+                    IResult result = command.Execute(strCommand);
+
+                    if (result.Success == true)
+                    {
+                        
+                        context.Response.Write(result.Data);
+                    }
+                    else
+                    {
+                        //TODO: if result not succeeded so appropriate action should be taken => High Priority
+                        context.Response.Write("Command Result is not trusted.");
+                    }
                 }
 
             }

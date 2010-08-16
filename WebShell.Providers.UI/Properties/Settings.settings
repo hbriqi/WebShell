@@ -41,5 +41,11 @@
     <Setting Name="Reg_BlockEndSearch" Type="System.String" Scope="Application">
       <Value Profile="(Default)">(?=(?i)\{%\s?endblock\s?%\})</Value>
     </Setting>
+    <Setting Name="Reg_HTML_src_href" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">\ssrc=\"[\w\./-]*\"\s|\shref=\"[\w\./-]*\"\s</Value>
+    </Setting>
+    <Setting Name="Reg_HTML_src_href_Replace" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">href|src|[\"\s=]*</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

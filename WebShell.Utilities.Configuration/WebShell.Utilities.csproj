@@ -8,8 +8,8 @@
     <ProjectGuid>{A6327050-68B9-461D-9CA8-9F497EADA064}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebShell.Utilities.Configuration</RootNamespace>
-    <AssemblyName>WebShell.Utilities.Configuration</AssemblyName>
+    <RootNamespace>WebShell.Utilities</RootNamespace>
+    <AssemblyName>WebShell.Utilities</AssemblyName>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <OldToolsVersion>3.5</OldToolsVersion>
@@ -57,14 +57,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\Section\LoggerElement.cs" />
+    <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Section\CommandProviderCollection.cs" />
-    <Compile Include="Section\CommandProviderElement.cs" />
-    <Compile Include="Section\PresenterElement.cs" />
-    <Compile Include="Section\SettingCollection.cs" />
-    <Compile Include="Section\SettingElement.cs" />
-    <Compile Include="Section\WebShellSection.cs" />
-    <Compile Include="WebShellConfig.cs" />
+    <Compile Include="Configuration\Section\CommandProviderCollection.cs" />
+    <Compile Include="Configuration\Section\CommandProviderElement.cs" />
+    <Compile Include="Configuration\Section\PresenterElement.cs" />
+    <Compile Include="Configuration\Section\SettingCollection.cs" />
+    <Compile Include="Configuration\Section\SettingElement.cs" />
+    <Compile Include="Configuration\Section\WebShellSection.cs" />
+    <Compile Include="Configuration\WebShellConfig.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">

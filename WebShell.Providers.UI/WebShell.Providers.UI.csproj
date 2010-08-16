@@ -71,6 +71,10 @@
       <Project>{B6898218-A325-4C4F-9D43-FD88726D1AEA}</Project>
       <Name>WebShell.ClassLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\WebShell.Utilities.Configuration\WebShell.Utilities.csproj">
+      <Project>{A6327050-68B9-461D-9CA8-9F497EADA064}</Project>
+      <Name>WebShell.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -90,7 +94,9 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

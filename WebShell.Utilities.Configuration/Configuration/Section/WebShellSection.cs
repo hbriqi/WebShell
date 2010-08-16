@@ -20,6 +20,14 @@ namespace WebShell.Utilities.Configuration.Section
             get { return this["presenter"] as PresenterElement; }
 
         }
+
+        [ConfigurationProperty("logger", IsRequired = true)]
+        public LoggerElement Logger
+        {
+            get { return this["logger"] as LoggerElement; }
+
+        }
+
         [ConfigurationProperty("settings", IsRequired = true)]
         public SettingCollection Settings
         {
