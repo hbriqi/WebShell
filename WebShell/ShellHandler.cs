@@ -20,50 +20,58 @@ namespace WebShell
 
         public void ProcessRequest(HttpContext context)
         {
-            IResult r_object = ObjectBuilder.CreateFrom(WebShell.Utilities.Configuration.WebShellConfig.GetCommandType("dispatcher"));
-            if (r_object.Success)
+            try
             {
-                if (System.Text.RegularExpressions.Regex.IsMatch(context.Request.Url.AbsolutePath, "\\w*\\.\\w+$"))
+                IResult r_object = ObjectBuilder.CreateFrom(WebShell.Utilities.Configuration.WebShellConfig.GetCommandType("dispatcher"));
+                if (r_object.Success)
                 {
-                    context.Response.TransmitFile(context.Server.MapPath(context.Request.Url.AbsolutePath));
-                }
-                else
-                {
-                    ICommand command = (ICommand)r_object.Data;
-                    string ComRoot = WebShellConfig.Root.ToLower();
-                    string strCommand = context.Request.Url.AbsolutePath.ToLower();
-                    //context.Response.TransmitFile
-                    if (strCommand.StartsWith(ComRoot))
+                    if (System.Text.RegularExpressions.Regex.IsMatch(context.Request.Url.AbsolutePath, "\\w*\\.\\w+$"))
                     {
-                        strCommand = strCommand.Remove(0, ComRoot.Length);
-                    }
-                    else if (strCommand.StartsWith("/"))
-                    {
-                        strCommand = strCommand.Remove(0, 1);
-                    }
-
-                    if (strCommand == string.Empty)
-                        strCommand = "home";
-
-                    IResult result = command.Execute(strCommand);
-
-                    if (result.Success == true)
-                    {
-                        
-                        context.Response.Write(result.Data);
+                        //TODO: normalize forbidden extensions => low
+                        string strForbiddenExt = ".exe.dll.cs.config.log";
+                        string strFilePath = context.Server.MapPath(context.Request.Url.AbsolutePath);
+                        string strExt = System.IO.Path.GetExtension(strFilePath);
+                        if (!strForbiddenExt.Contains(strExt))
+                        {
+                            context.Response.Clear();
+                            context.Response.ContentType = "text/"+strExt.Replace(".","");
+                            context.Response.TransmitFile(context.Server.MapPath(context.Request.Url.AbsolutePath));
+                            context.Response.Flush();
+                        }
                     }
                     else
                     {
-                        //TODO: if result not succeeded so appropriate action should be taken => High Priority
-                        context.Response.Write("Command Result is not trusted.");
-                    }
-                }
+                        ICommand command = (ICommand)r_object.Data;
+                        string strVirPath = context.Request.ApplicationPath;
+                        string strCommand = context.Request.Url.AbsolutePath.ToLower();
+                        if (strCommand.StartsWith(strVirPath.ToLower())) strCommand = strCommand.Remove(0, strVirPath.Length);
+                        if (strCommand.StartsWith("/")) strCommand = strCommand.Remove(0, 1);
+                        if (strCommand == string.Empty) strCommand = "home";
 
+                        IResult result = command.Execute(strCommand);
+
+                        if (result.Success == true)
+                        {
+                            context.Response.Write(result.Data);
+                        }
+                        else
+                        {
+                            //TODO: if result not succeeded so appropriate action should be taken => High Priority
+                            context.Response.Write("Command Result is not trusted.");
+                        }
+                    }
+
+                }
+                else
+                {
+                    //TODO: manage response to be more meaningful  
+                    context.Response.Write("Resource not found.");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //TODO: manage response to be more meaningful  
-                context.Response.Write("Resource not found.");
+                context.Response.Write("Website error");
+                WebShell.Utilities.Log.Write(this.ToString(), "handler error", ex.Message);
             }
         }
 

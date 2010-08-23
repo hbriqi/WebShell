@@ -6,6 +6,8 @@ using WebShell.ClassLibrary.Classes;
 using System.Web;
 using WebShell.Utilities.Configuration;
 using WebNote.ViewModels;
+using WebNote.DB;
+using System.Web.Script.Serialization;
 
 namespace WebNote.Users
 {
@@ -29,6 +31,10 @@ namespace WebNote.Users
             IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()).Data as IPresenter;
             dynamic view=new UserView();
             view.Name = "Hisham";
+          
+            //System.Web.Script.Serialization.JavaScriptSerializer oSerializer = 
+            //new System.Web.Script.Serialization.JavaScriptSerializer();
+            //string sJSON = oSerializer.Serialize(oList);
             result = presenter.GetViewHTML("AddUser.htm", view);
 
             return result;

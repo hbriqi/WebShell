@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Configuration\Section\SecurityElement.cs" />
     <Compile Include="Configuration\Section\LoggerElement.cs" />
     <Compile Include="Log.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -67,6 +68,7 @@
     <Compile Include="Configuration\Section\SettingElement.cs" />
     <Compile Include="Configuration\Section\WebShellSection.cs" />
     <Compile Include="Configuration\WebShellConfig.cs" />
+    <Compile Include="Security.cs" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -99,6 +101,10 @@
     <ProjectReference Include="..\WebShell.ClassLibrary\WebShell.ClassLibrary.csproj">
       <Project>{B6898218-A325-4C4F-9D43-FD88726D1AEA}</Project>
       <Name>WebShell.ClassLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebShell.Providers.Security\WebShell.Providers.Security.csproj">
+      <Project>{2DCDFA96-2B93-4361-B7E1-F4C7486C40BE}</Project>
+      <Name>WebShell.Providers.Security</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

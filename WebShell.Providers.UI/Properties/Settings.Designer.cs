@@ -142,7 +142,7 @@ namespace WebShell.Providers.UI.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("\\ssrc=\\\"[\\w\\./-]*\\\"\\s|\\shref=\\\"[\\w\\./-]*\\\"\\s")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\\ssrc=\\\"[\\w\\./-]*\\\"\\s?|\\shref=\\\"[\\w\\./-]*\\\"\\s?")]
         public string Reg_HTML_src_href {
             get {
                 return ((string)(this["Reg_HTML_src_href"]));

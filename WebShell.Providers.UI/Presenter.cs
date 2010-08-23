@@ -25,7 +25,6 @@ namespace WebShell.Providers.UI
                 string strFinalText = ParsResourceText(strResourceText, viewType);
                 result.Data = strFinalText;
                 result.Success = true;
-                Log.Write(this.ToString(), "getview html", strFinalText);
             }
             catch (Exception ex)
             {
@@ -99,7 +98,7 @@ namespace WebShell.Providers.UI
           
             //sustitute src and href
             string url = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.AbsolutePath, "");
-            url += WebShell.Utilities.Configuration.WebShellConfig.Root+"html/";
+            url += HttpContext.Current.Request.ApplicationPath + "/html/";
             foreach (Match matchLink in Regex.Matches(strFinalText, Settings.Default.Reg_HTML_src_href))
             {
                 string fileLink = Regex.Replace(matchLink.Value, Settings.Default.Reg_HTML_src_href_Replace, "");

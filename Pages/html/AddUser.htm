@@ -2,6 +2,11 @@
 
 {% block title %}Add New User{% endblock %}
 {% block content %}
+	<script type="text/javascript">
+	    $(function () {
+	        $("#testt").datepicker();
+	    });
+	</script>
 <form id="frmAddUser" method="post" action="" >
 <table id="userTable">
 <tr>
@@ -13,12 +18,21 @@
 </tr>
 <tr>
 <td>Email:</td>
-<td><input id="txtEmail" type="text" />  </td>
+<td>
+<div>
+<input id="txtEmail" name="txtEmail" type="text" />
+</div>
+  
+</td>
 </tr>
 <tr>
-<td colspan="2"><input id="btnSave" type="submit" value="Save" /> </td>
+<td colspan="2"><input id="btnSave" type="submit" value="Save" class="ui-button ui-button-text-only ui-widget ui-state-default ui-corner-al" /> </td>
 </tr>
 </table>
+
+<div>
+<input id="testt" name="testt" type="text" />
+</div>
 </form>
 {% endblock %}
 {% block footer %}{% endblock %}

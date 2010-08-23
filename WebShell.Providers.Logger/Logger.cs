@@ -23,7 +23,7 @@ namespace WebShell.Providers.Log
                 + "WS_LOGS\\"
                 + context
                 + DateTime.Now.ToString("dd-MM-yyyy")
-                + ".log.txt";
+                + ".log";
             string strLogText = "["+title+"] " + DateTime.Now.ToString()
                 + "\r\n----------------------------------------------------------------- \r\n";
             strLogText += message + "\r\n----------------------------------------------------------------- \r\n";

@@ -55,6 +55,7 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
@@ -62,6 +63,10 @@
     <Compile Include="UsersCommand.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\WebNote.DB\WebNote.DB.csproj">
+      <Project>{D190606B-43C6-4093-8086-D409FEC39F0D}</Project>
+      <Name>WebNote.DB</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WebNotes.ViewModels\WebNote.ViewModels.csproj">
       <Project>{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}</Project>
       <Name>WebNote.ViewModels</Name>

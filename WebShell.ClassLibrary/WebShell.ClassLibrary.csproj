@@ -60,9 +60,11 @@
     <Compile Include="Classes\ObjectBuilder.cs" />
     <Compile Include="Classes\Result.cs" />
     <Compile Include="Interfaces\ICommand.cs" />
+    <Compile Include="Interfaces\ILocalize.cs" />
     <Compile Include="Interfaces\ILog.cs" />
     <Compile Include="Interfaces\IPresenter.cs" />
     <Compile Include="Interfaces\IResult.cs" />
+    <Compile Include="Interfaces\ISecurity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

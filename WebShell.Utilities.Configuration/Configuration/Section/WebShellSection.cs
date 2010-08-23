@@ -28,6 +28,13 @@ namespace WebShell.Utilities.Configuration.Section
 
         }
 
+        [ConfigurationProperty("security", IsRequired = true)]
+        public SecurityElement Security
+        {
+            get { return this["security"] as SecurityElement; }
+
+        }
+
         [ConfigurationProperty("settings", IsRequired = true)]
         public SettingCollection Settings
         {
