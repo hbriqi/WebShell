@@ -5,8 +5,7 @@ using System.Web;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using System.IO;
-using WebShell.ClassLibrary.Interfaces;
-using WebShell.ClassLibrary.Classes;
+using WebShell.ClassLibrary;
 using WebShell.Providers.UI.Properties;
 using WebShell.Utilities;
 

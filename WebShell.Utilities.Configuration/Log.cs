@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using WebShell.Utilities.Configuration;
-using WebShell.ClassLibrary.Interfaces;
-using WebShell.ClassLibrary.Classes;
+using WebShell.ClassLibrary;
 
 namespace WebShell.Utilities
 {

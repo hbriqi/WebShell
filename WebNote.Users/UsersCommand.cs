@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WebShell.ClassLibrary.Interfaces;
-using WebShell.ClassLibrary.Classes;
+using WebShell.ClassLibrary;
 using System.Web;
 using WebShell.Utilities.Configuration;
 using WebNote.ViewModels;
@@ -11,6 +10,7 @@ using System.Web.Script.Serialization;
 
 namespace WebNote.Users
 {
+    [WebShell.ClassLibrary.LoginRequired()]
    public class UsersCommand:ICommand
     {
         #region ICommand Members

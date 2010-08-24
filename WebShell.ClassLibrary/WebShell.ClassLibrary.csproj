@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginRequired.cs" />
     <Compile Include="Classes\ObjectBuilder.cs" />
     <Compile Include="Classes\Result.cs" />
     <Compile Include="Interfaces\ICommand.cs" />

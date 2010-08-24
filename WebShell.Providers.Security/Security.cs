@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WebShell.ClassLibrary.Interfaces;
+using WebShell.ClassLibrary;
 
 namespace WebShell.Providers.Security
 {

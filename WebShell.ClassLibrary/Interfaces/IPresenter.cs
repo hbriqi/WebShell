@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Web;
 
-namespace WebShell.ClassLibrary.Interfaces
+namespace WebShell.ClassLibrary
 {
     public interface IPresenter
     {

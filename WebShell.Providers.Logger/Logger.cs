@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.IO;
 using System.Web;
-using WebShell.ClassLibrary.Interfaces;
+using WebShell.ClassLibrary;
 
 namespace WebShell.Providers.Log
 {

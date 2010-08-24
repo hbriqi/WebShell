@@ -4,8 +4,7 @@ using System.Text;
 using System.Configuration;
 using System.Reflection;
 using WebShell.Utilities.Configuration.Section;
-using WebShell.ClassLibrary.Interfaces;
-using WebShell.ClassLibrary.Classes;
+using WebShell.ClassLibrary;
 
 namespace WebShell.Utilities.Configuration
 {

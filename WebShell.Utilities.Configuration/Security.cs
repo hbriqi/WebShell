@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using WebShell.ClassLibrary.Interfaces;
-using WebShell.ClassLibrary.Classes;
+using WebShell.ClassLibrary;
 using WebShell.Utilities.Configuration;
 
 namespace WebShell.Utilities

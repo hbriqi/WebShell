@@ -1,8 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WebShell.ClassLibrary.Interfaces;
-using WebShell.ClassLibrary.Classes;
+using WebShell.ClassLibrary;
 using WebShell.Utilities.Configuration;
 using System.Web;
 

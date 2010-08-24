@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using WebShell.ClassLibrary.Interfaces;
 
-namespace WebShell.ClassLibrary.Classes
+namespace WebShell.ClassLibrary
 {
     public class Result:IResult
     {

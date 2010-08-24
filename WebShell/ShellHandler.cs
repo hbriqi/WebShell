@@ -2,8 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web;
-using WebShell.ClassLibrary.Interfaces;
-using WebShell.ClassLibrary.Classes;
+using WebShell.ClassLibrary;
 using WebShell.Utilities.Configuration;
 
 namespace WebShell
@@ -33,10 +32,10 @@ namespace WebShell
                         string strExt = System.IO.Path.GetExtension(strFilePath);
                         if (!strForbiddenExt.Contains(strExt))
                         {
-                            context.Response.Clear();
+                            //context.Response.Clear();
                             context.Response.ContentType = "text/"+strExt.Replace(".","");
                             context.Response.TransmitFile(context.Server.MapPath(context.Request.Url.AbsolutePath));
-                            context.Response.Flush();
+                            //context.Response.Flush();
                         }
                     }
                     else
