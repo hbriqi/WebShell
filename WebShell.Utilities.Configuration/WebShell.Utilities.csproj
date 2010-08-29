@@ -54,9 +54,11 @@
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppData.cs" />
     <Compile Include="Configuration\Section\SecurityElement.cs" />
     <Compile Include="Configuration\Section\LoggerElement.cs" />
     <Compile Include="Log.cs" />

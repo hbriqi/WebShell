@@ -9,6 +9,6 @@ namespace WebShell.ClassLibrary
     {
        bool IsValidUser();
        bool IsValidRole();
-       void Login(string ReturnCommandName);
+       IResult Login(string ReturnCommandName);
     }
 }

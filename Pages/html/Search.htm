@@ -1,0 +1,44 @@
+﻿{% extends "base.htm" %}
+
+{% block title %}Web Notes{% endblock %}
+{% block content %}
+<br></br>
+<div>
+    <div style="float:left;padding:0pt;">
+        <font size="6" style="color:#CC0404" >
+        Web
+        </font>
+        <font size="6" style="color:#004276">
+        Note
+        </font>
+    </div>
+    <div style="margin-left:140px;">
+         <form method="post" action="">
+            <div class="btn" style="padding:0pt;">
+                <span>
+                <input type="text" name="query" style="width:30%;border-style:groove;border-color:#D8D8D8;height:25px;" />
+                </span>
+                <span>
+                <input name="search" value="Search" type="submit"/>
+                </span>
+            </div>
+        </form>
+    </div>  
+</div>
+
+<div id="results" style="margin-left:140px;">
+<ol style="list-style:none outside none;padding:0pt;border:0 none;margin:0;">
+<li style="padding:0pt;border:0 none;margin:0;">
+<div>item1</div>
+</li>
+<li>
+<div>item2</div>
+</li>
+</ol>
+</div>
+
+<br></br>
+
+{% endblock %}
+{% block footer %}{% endblock %}
+

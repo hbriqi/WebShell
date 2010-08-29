@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Web;
+using System.Web.SessionState;
 using WebShell.ClassLibrary;
-using WebShell.Utilities.Configuration;
+using WebShell.Utilities;
 
 namespace WebShell
 {
-    class ShellHandler:IHttpHandler
+    class ShellHandler:IHttpHandler,IRequiresSessionState
     {
        
         #region IHttpHandler Members
@@ -16,12 +17,12 @@ namespace WebShell
         {
             get { return false; }
         }
-
+        
         public void ProcessRequest(HttpContext context)
         {
             try
             {
-                IResult r_object = ObjectBuilder.CreateFrom(WebShell.Utilities.Configuration.WebShellConfig.GetCommandType("dispatcher"));
+                IResult r_object = ObjectBuilder.CreateFrom(WebShellConfig.GetCommandType("dispatcher"));
                 if (r_object.Success)
                 {
                     if (System.Text.RegularExpressions.Regex.IsMatch(context.Request.Url.AbsolutePath, "\\w*\\.\\w+$"))
@@ -33,7 +34,7 @@ namespace WebShell
                         if (!strForbiddenExt.Contains(strExt))
                         {
                             //context.Response.Clear();
-                            context.Response.ContentType = "text/"+strExt.Replace(".","");
+                            context.Response.ContentType = "text/" + strExt.Replace(".", "");
                             context.Response.TransmitFile(context.Server.MapPath(context.Request.Url.AbsolutePath));
                             //context.Response.Flush();
                         }
@@ -69,8 +70,10 @@ namespace WebShell
             }
             catch (Exception ex)
             {
+                //TODO: Redirect to Error Page -> High
                 context.Response.Write("Website error");
-                WebShell.Utilities.Log.Write(this.ToString(), "handler error", ex.Message);
+                WebShell.Utilities.Log.Write(this.ToString(), "handler error", ex.StackTrace);
+                throw ex;
             }
         }
 

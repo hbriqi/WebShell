@@ -9,7 +9,7 @@ namespace WebShell.Utilities
 {
     public class Security
     {
-        public static ISecurity iSecurity = ObjectBuilder.CreateFrom(WebShellConfig.GetSecurityType()).Data as ISecurity;
+        public static ISecurity iSecurity = ObjectBuilder.CreateFrom(WebShellConfig.GetCommandType("security")).Data as ISecurity;
 
         public static bool IsValidUser()
         {

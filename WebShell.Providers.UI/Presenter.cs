@@ -82,20 +82,33 @@ namespace WebShell.Providers.UI
 
             //sustitute varaibles {{variable}}
             string strFinalText = strBasicText;
-            if (viewType != null)
+
+            foreach (Match matchVariable in Regex.Matches(strFinalText, Settings.Default.Reg_VarPattern))
             {
-                foreach (Match matchVariable in Regex.Matches(strFinalText, Settings.Default.Reg_VarPattern))
+                string strPropName = Regex.Replace(matchVariable.Value, Settings.Default.Reg_VarName, "").Trim();
+                if (viewType != null)
                 {
-                    string strPropName = Regex.Replace(matchVariable.Value, Settings.Default.Reg_VarName, "");
                     PropertyInfo proInfo = viewType.GetType().GetProperty(strPropName);
                     if (proInfo != null)
                     {
                         strFinalText = strFinalText.Replace(matchVariable.Value, proInfo.GetValue(viewType, null).ToString());
                     }
                 }
+                else//search for session keys
+                {
+                    if (HttpContext.Current.Session[strPropName] != null)
+                    {
+                        strFinalText = strFinalText.Replace(matchVariable.Value, HttpContext.Current.Session[strPropName].ToString());
+                    }
+                    else
+                    {
+                        strFinalText = strFinalText.Replace(matchVariable.Value, "");
+                    }
+                }
             }
-          
-            //sustitute src and href
+            
+
+            //substitute src and href
             string url = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.AbsolutePath, "");
             url += HttpContext.Current.Request.ApplicationPath + "/html/";
             foreach (Match matchLink in Regex.Matches(strFinalText, Settings.Default.Reg_HTML_src_href))
@@ -108,7 +121,11 @@ namespace WebShell.Providers.UI
                 }
                 else if (matchLink.Value.ToLower().StartsWith(" href"))
                 {
+                    //update files links
+                    if (System.IO.Path.GetExtension(thisUrl) != string.Empty )
                     strFinalText = strFinalText.Replace(matchLink.Value, " href=\"" + thisUrl + "\" ");
+                    else //update WebShell Commands links
+                        strFinalText = strFinalText.Replace(matchLink.Value, " href=\"" + thisUrl.Replace("/html","") + "\" ");
                 }
             }
            
@@ -121,6 +138,7 @@ namespace WebShell.Providers.UI
             {
                 if (property.CanWrite)
                 {
+                    //TODO: handle if request method "GET" to use url instead of form
                     string[] values = httpRequest.Form.GetValues(property.Name);
                     if (values != null && values.Length > 0)
                     {

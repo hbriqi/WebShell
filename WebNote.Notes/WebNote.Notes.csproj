@@ -51,11 +51,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="NoteCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -74,6 +77,24 @@
       <ProductName>Windows Installer 3.1</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebNotes.ViewModels\WebNote.ViewModels.csproj">
+      <Project>{0CB5A66A-D943-4D03-9DAE-38C49566CEE3}</Project>
+      <Name>WebNote.ViewModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebShell.ClassLibrary\WebShell.ClassLibrary.csproj">
+      <Project>{B6898218-A325-4C4F-9D43-FD88726D1AEA}</Project>
+      <Name>WebShell.ClassLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebShell.Providers.Security\WebShell.Providers.Security.csproj">
+      <Project>{2DCDFA96-2B93-4361-B7E1-F4C7486C40BE}</Project>
+      <Name>WebShell.Providers.Security</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebShell.Utilities.Configuration\WebShell.Utilities.csproj">
+      <Project>{A6327050-68B9-461D-9CA8-9F497EADA064}</Project>
+      <Name>WebShell.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

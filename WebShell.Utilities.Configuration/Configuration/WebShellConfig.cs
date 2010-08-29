@@ -6,7 +6,7 @@ using System.Reflection;
 using WebShell.Utilities.Configuration.Section;
 using WebShell.ClassLibrary;
 
-namespace WebShell.Utilities.Configuration
+namespace WebShell.Utilities
 {
     public static class WebShellConfig
     {
@@ -20,31 +20,31 @@ namespace WebShell.Utilities.Configuration
             return commandProviderType;
         }
 
-        public static Type GetPresenterType()
-        {
-            Type presnterType = Type.GetType(shellSectin.Presenter.ProviderType, true);
-            if (presnterType == null)
-                throw new Exception("Presenter provider section is not configured properly");
-            return presnterType;
-        }
+        //public static Type GetPresenterType()
+        //{
+        //    Type presnterType = Type.GetType(shellSectin.Presenter.ProviderType, true);
+        //    if (presnterType == null)
+        //        throw new Exception("Presenter provider section is not configured properly");
+        //    return presnterType;
+        //}
 
-        //TODO: for presenter, logger and security add code to use default framework DLLs
+        ////TODO: for presenter, logger and security add code to use default framework DLLs
 
-        public static Type GetLoggerType()
-        {
-            Type loogerType = Type.GetType(shellSectin.Logger.ProviderType, true);
-            if (loogerType == null)
-                throw new Exception("Logger provider section is not configured properly");
-            return loogerType;
-        }
+        //public static Type GetLoggerType()
+        //{
+        //    Type loogerType = Type.GetType(shellSectin.Logger.ProviderType, true);
+        //    if (loogerType == null)
+        //        throw new Exception("Logger provider section is not configured properly");
+        //    return loogerType;
+        //}
 
-        public static Type GetSecurityType()
-        {
-            Type loogerType = Type.GetType(shellSectin.Security.ProviderType, true);
-            if (loogerType == null)
-                throw new Exception("Security provider section is not configured properly");
-            return loogerType;
-        }
+        //public static Type GetSecurityType()
+        //{
+        //    Type loogerType = Type.GetType(shellSectin.Security.ProviderType, true);
+        //    if (loogerType == null)
+        //        throw new Exception("Security provider section is not configured properly");
+        //    return loogerType;
+        //}
 
 
         public static string GetSetting(string name)

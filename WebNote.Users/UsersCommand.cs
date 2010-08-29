@@ -3,65 +3,97 @@ using System.Collections.Generic;
 using System.Text;
 using WebShell.ClassLibrary;
 using System.Web;
-using WebShell.Utilities.Configuration;
+using WebShell.Utilities;
 using WebNote.ViewModels;
-using WebNote.DB;
+using WebNote.DB.Business;
 using System.Web.Script.Serialization;
+using System.Reflection;
 
 namespace WebNote.Users
 {
     [WebShell.ClassLibrary.LoginRequired()]
    public class UsersCommand:ICommand
     {
-        #region ICommand Members
+        static IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetCommandType("presenter")).Data as IPresenter;
 
+        #region ICommand Members
+  
         public IResult Execute(string command)
         {
-            throw new Exception("The method or operation is not implemented.");
+            IResult result = new Result();
+            string strCommandName = GetCommand(command);
+            string strMethodName = strCommandName.ToLower() + "_" + HttpContext.Current.Request.HttpMethod.ToLower();
+            MethodInfo mi = ObjectBuilder.GetMethodInfo(this, strMethodName);
+            result = mi.Invoke(this, null) as IResult;
+
+            return result;
         }
 
         public string GetCommand(string command)
         {
-            throw new Exception("The method or operation is not implemented.");
-        }
+            string strCommandName = command.ToLower();
+            if (strCommandName.StartsWith("/"))
+            {
+                strCommandName = strCommandName.Remove(0, 1); 
+            }
+            if (strCommandName!= string.Empty)strCommandName = strCommandName.Split('/')[0];
+            else strCommandName = "default";
 
-        public IResult Execute_GET(string command)
+            return strCommandName;
+        }
+        #endregion
+
+
+        #region Command URL Methods
+        public IResult Default_GET()
         {
             IResult result = new Result();
-            IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()).Data as IPresenter;
-            dynamic view=new UserView();
-            view.Name = "Hisham";
-          
-            //System.Web.Script.Serialization.JavaScriptSerializer oSerializer = 
-            //new System.Web.Script.Serialization.JavaScriptSerializer();
-            //string sJSON = oSerializer.Serialize(oList);
-            result = presenter.GetViewHTML("AddUser.htm", view);
+            result = presenter.GetViewHTML("home.htm");
 
             return result;
         }
 
-        public IResult Execute_POST(string command)
+        public IResult Default_POST()
+        {
+            IResult result = new Result();
+            dynamic view = new NoteView();
+            presenter.SetViewModel(view, HttpContext.Current.Request);
+
+            return result;
+        }
+        IResult Register_GET()
         {
             IResult result = new Result();
             HttpRequest httpRequest = HttpContext.Current.Request;
-            IPresenter presenter = ObjectBuilder.CreateFrom(WebShellConfig.GetPresenterType()).Data as IPresenter;
             dynamic view = new UserView();
-            presenter.SetViewModel(view, httpRequest);
-            result.Data= "Welcom "+view.Name;
-            result.Success = true;
+            result = presenter.GetViewHTML("adduser.htm");
+          
             return result;
         }
 
-        public IResult Execute_PUT(string command)
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
+         IResult Register_POST()
+         {
+             IResult result = new Result();
+             HttpRequest httpRequest = HttpContext.Current.Request;
+             dynamic view = new UserView();
+             presenter.SetViewModel(view, httpRequest);
+             WebNoteBiz.AddUser(view.Email, view.Password);
+             HttpContext.Current.Session["userEmail"] = view.Email;
+             HttpContext.Current.Session["activeMI"] = "public_notes";
+             HttpContext.Current.Response.Redirect(AppData.GetBaseUrl());
+             return result;
+         }
 
-        public IResult Execute_DELETE(string command)
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
+         IResult Login_GET()
+         {
+             IResult result = new Result();
+             HttpRequest httpRequest = HttpContext.Current.Request;
+             dynamic view = new UserView();
+             result = presenter.GetViewHTML("login.htm");
 
+             return result;
+         }
         #endregion
+        
     }
 }
