@@ -2,6 +2,12 @@
 
 {% block title %}Add Note{% endblock %}
 {% block content %}
+ <script language="javascript" src="ckeditor/ckeditor.js" type="text/javascript"></script>
+ <script type="text/javascript">
+	 $().ready(function () {
+		 var editor = CKEDITOR.replace('NoteText');
+	 });
+</script>
 <br></br>
  <div>
 		<font size="6" style="color:#CC0404" >
@@ -13,44 +19,7 @@
 		<font size="5" style="font-weight:bold">[Add new Note]</font>
  </div>
  <br></br>
- 
- <script language="javascript" src="ckeditor/ckeditor.js" type="text/javascript"></script>
- <script type="text/javascript">
-	 $().ready(function () {
-		 var editor = CKEDITOR.replace('NoteText');
-	 });
-</script>
-
-<style type="text/css">
-form.AddNoteForm label.error, label.error{  color: red; font-style: italic}
-</style>
-<form id="AddNoteForm" method="post">
-<table class="btn" style="width:70%">
-		<tr>
-		<td>Title:</td>
-		</tr>
-		<tr>
-		<td><input type="text" id="Title" name="Title" /> </td>
-		</tr>
-
-		<tr>
-		<td><input type="checkbox" id="IsPublic" name="IsPublic" value="Is public for view" />&nbsp Is public for view </td>
-		</tr>
-
-		<tr>
-		<td>Note:</td>
-		</tr>
-		<tr>
-		<td>
-		<textarea id="NoteText" name="NoteText" rows="10" ></textarea>
-		</td>
-		</tr>
-
-		<tr>
-		<td><input type="submit" id="btnAdd" name="btnAdd" value="save Note" /> </td>
-		</tr>
-</table>
-</form>
+{% include 'html/NoteForm.htm' %}
 {% endblock %}
 {% block footer %}{% endblock %}
 

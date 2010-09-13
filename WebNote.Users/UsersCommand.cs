@@ -77,22 +77,23 @@ namespace WebNote.Users
              HttpRequest httpRequest = HttpContext.Current.Request;
              dynamic view = new UserView();
              presenter.SetViewModel(view, httpRequest);
-             WebNoteBiz.AddUser(view.Email, view.Password);
-             HttpContext.Current.Session["userEmail"] = view.Email;
+             long userId = WebNoteBiz.AddUser(view.Email, view.Password);
+             WebShell.Utilities.User.Id = userId;
+             WebShell.Utilities.User.Email = view.Email;
              HttpContext.Current.Session["activeMI"] = "public_notes";
              HttpContext.Current.Response.Redirect(AppData.GetBaseUrl());
              return result;
          }
 
-         IResult Login_GET()
-         {
-             IResult result = new Result();
-             HttpRequest httpRequest = HttpContext.Current.Request;
-             dynamic view = new UserView();
-             result = presenter.GetViewHTML("login.htm");
+         //IResult Login_GET()
+         //{
+         //    IResult result = new Result();
+         //    HttpRequest httpRequest = HttpContext.Current.Request;
+         //    dynamic view = new UserView();
+         //    result = presenter.GetViewHTML("login.htm");
 
-             return result;
-         }
+         //    return result;
+         //}
         #endregion
         
     }

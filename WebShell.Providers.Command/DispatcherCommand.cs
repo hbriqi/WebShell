@@ -33,7 +33,15 @@ namespace WebShell.Providers.Command
                 if (oArr.Length > 0)
                 {
                     loginRequired = oArr[0] as LoginRequired;
-                    isValidUser = WebShell.Utilities.Security.IsValidUser();
+                    if (loginRequired.Active == true)
+                    {
+                        ISecurity iSecurity = ObjectBuilder.CreateFrom(WebShellConfig.GetCommandType("security")).Data as ISecurity;
+                        isValidUser = iSecurity.IsValidUser();
+                    }
+                    else
+                    {
+                        isValidUser = true;
+                    }
                 }
                 else
                 { 
@@ -53,12 +61,12 @@ namespace WebShell.Providers.Command
                     WebShell.Utilities.Log.Write(this.ToString(), "not authorized user", message);                   
                     if (loginRequired.RedirectTo != null)
                     {
-                        HttpContext.Current.Response.Redirect(AppData.GetBaseUrl() + "/security/login/?" + loginRequired.RedirectTo);
+                        HttpContext.Current.Response.Redirect(AppData.GetBaseUrl() + "security/login/?r=" + loginRequired.RedirectTo);
 
                     }
                     else
                     {
-                        HttpContext.Current.Response.Redirect(AppData.GetBaseUrl() + "/security/login/?" + command);
+                        HttpContext.Current.Response.Redirect(AppData.GetBaseUrl() + "security/login/?r=" + command);
                     }
                 }
                 else
@@ -84,31 +92,6 @@ namespace WebShell.Providers.Command
             strCommandName = strCommandName.Split('/')[0];
                        
             return strCommandName;
-        }
-
-        #endregion
-
-        #region ICommand Members
-
-
-        public IResult Execute_GET(string command)
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
-
-        public IResult Execute_POST(string command)
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
-
-        public IResult Execute_PUT(string command)
-        {
-            throw new Exception("The method or operation is not implemented.");
-        }
-
-        public IResult Execute_DELETE(string command)
-        {
-            throw new Exception("The method or operation is not implemented.");
         }
 
         #endregion

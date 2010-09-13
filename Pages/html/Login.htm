@@ -54,14 +54,25 @@ form.AddUserForm label.error, label.error{  color: red; font-style: italic}
 			<td>Password:</td>
 			<td>
 			<input type="password" id="Password" name="Password" style="width:30%"/>
+			<span id="LoginError" style="color:Red;">Invalid username or password. Please re-enter your user information.</span>
+			<script type="text/javascript">
+			    var lerror = "{{InvalidPwd}}";
+				if (lerror != "") {
+					$("#LoginError").show();
+				}
+				else {
+					$("#LoginError").hide();
+				}
+			</script>
 			</td>
 		</tr>
 		<tr>
 			<td>
-			<input id="btnLogin" name="btnLogin" type="submit" value="Login" /> 
+			 
 			</td>
 			<td>
-			<a href="users/register" class="ss">Sign UP</a>
+			<input id="btnLogin" name="btnLogin" type="submit" value="Login" style="font-size:9pt;"/>&nbsp;
+			<a href="users/register" style="font-size:9pt">Sign UP</a>
 			</td>
 		</tr>
 	</table>

@@ -35,7 +35,7 @@ namespace WebShell.Providers.UI
             
         }
 
-        private string ParsResourceText(string strResourceText, dynamic viewType=null)
+        private string ParsResourceText(string strResourceText, dynamic viewType = null)
         {
             string strBasicText = string.Empty;
             //check for {% extends "base.htm" %} Tag and then substitute block cont
@@ -88,10 +88,27 @@ namespace WebShell.Providers.UI
                 string strPropName = Regex.Replace(matchVariable.Value, Settings.Default.Reg_VarName, "").Trim();
                 if (viewType != null)
                 {
-                    PropertyInfo proInfo = viewType.GetType().GetProperty(strPropName);
+                    PropertyInfo proInfo = viewType.GetType().GetProperty(strPropName, BindingFlags.IgnoreCase | BindingFlags.Public| BindingFlags.Instance);
                     if (proInfo != null)
                     {
-                        strFinalText = strFinalText.Replace(matchVariable.Value, proInfo.GetValue(viewType, null).ToString());
+                        object oVal = proInfo.GetValue(viewType, null);
+                        if (oVal != null)
+                            strFinalText = strFinalText.Replace(matchVariable.Value, oVal.ToString());
+                    }
+                    else if (HttpContext.Current.Session[strPropName] != null)
+                    {
+                        strFinalText = strFinalText.Replace(matchVariable.Value, HttpContext.Current.Session[strPropName].ToString());
+                    }
+                    else if (viewType is IView)
+                    {
+                        object oVal = (viewType as IView).GetValue(strPropName);
+                        if (oVal != null)
+                            strFinalText = strFinalText.Replace(matchVariable.Value, oVal.ToString());
+                        else strFinalText = strFinalText.Replace(matchVariable.Value, "");
+                    }
+                    else
+                    {
+                        strFinalText = strFinalText.Replace(matchVariable.Value, "");
                     }
                 }
                 else//search for session keys
@@ -109,7 +126,7 @@ namespace WebShell.Providers.UI
             
 
             //substitute src and href
-            string url = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.AbsolutePath, "");
+            string url = HttpContext.Current.Request.Url.AbsoluteUri.Replace(HttpContext.Current.Request.Url.PathAndQuery, "");
             url += HttpContext.Current.Request.ApplicationPath + "/html/";
             foreach (Match matchLink in Regex.Matches(strFinalText, Settings.Default.Reg_HTML_src_href))
             {
@@ -131,18 +148,40 @@ namespace WebShell.Providers.UI
            
             return strFinalText;
         }
-
+        
         public void SetViewModel(dynamic viewType, HttpRequest httpRequest)
         {
+            if (httpRequest == null) httpRequest = HttpContext.Current.Request;
+            
             foreach (PropertyInfo property in viewType.GetType().GetProperties())
             {
                 if (property.CanWrite)
                 {
-                    //TODO: handle if request method "GET" to use url instead of form
+                    //TODO: handle if request method "GET" to use url instead of form => medium
                     string[] values = httpRequest.Form.GetValues(property.Name);
                     if (values != null && values.Length > 0)
                     {
-                        property.SetValue(viewType, values[0], null);
+                        //TODO: support other data types => medium
+                        object oValue;
+                        if (property.PropertyType == typeof(Int64))
+                        {
+                            Int64 l;
+                            Int64.TryParse(values[0], out l);
+                            oValue = l;
+                        }
+                        else oValue = values[0];
+                        property.SetValue(viewType, oValue, null);
+                    }
+                    else
+                    {
+                        //TODO: support other data types => medium
+                        object oValue;
+                        if (property.PropertyType == typeof(Int64))
+                        {
+                            oValue = -1;
+                        }
+                        else oValue = string.Empty;
+                        property.SetValue(viewType, oValue, null);
                     }
                 }
             }

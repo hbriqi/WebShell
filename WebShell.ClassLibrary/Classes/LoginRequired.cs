@@ -10,9 +10,16 @@ namespace WebShell.ClassLibrary
     {
         public LoginRequired()
         {
+            Active = true;
+        }
+
+        public LoginRequired(bool active)
+        {
+            Active = active;
         }
 
         public string RedirectTo { get; set; }
+        public bool Active { get; set; }
 
     }
 }

@@ -41,7 +41,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Pages", "Pages\", "{0DD6125
 		Release.AspNetCompiler.ForceOverwrite = "true"
 		Release.AspNetCompiler.FixedNames = "false"
 		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "7284"
+		VWDPort = "11507"
 		DefaultWebSiteLanguage = "Visual C#"
 	EndProjectSection
 EndProject
